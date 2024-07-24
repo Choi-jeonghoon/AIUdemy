@@ -199,7 +199,7 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
 
   providers: [
     credentials({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
         username: { label: "Username", type: "text", placeholder: "아이디" },
         password: {

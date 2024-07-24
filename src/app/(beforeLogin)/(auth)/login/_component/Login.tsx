@@ -61,7 +61,11 @@ export default function LoginComponent() {
               로그인
             </BodyFont>
             <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
-              <Input placeholder="아이디를 입력해주세요" value={userId} onChange={(e) => setUserId(e.target.value)} />
+              <Input
+                placeholder="아이디를 입력해주세요"
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+              />
               <CheckPwInput
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
@@ -125,7 +129,12 @@ export default function LoginComponent() {
                 onClick={() => handleSocialLogin(provider.name)}
                 className="social-login-button"
               >
-                <Image alt={provider.name} src={provider.imageSrc} width={72} height={72} />
+                <Image
+                  alt={provider.name}
+                  src={provider.imageSrc}
+                  width={72}
+                  height={72}
+                />
               </button>
             ))}
           </div>
