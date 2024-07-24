@@ -202,7 +202,11 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text", placeholder: "아이디" },
-        password: { label: "Password", type: "password", placeholder: "비밀번호" },
+        password: {
+          label: "Password",
+          type: "password",
+          placeholder: "비밀번호",
+        },
       },
       async authorize(credentials) {
         const { username, password } = credentials;
@@ -210,7 +214,10 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
         console.log("일반로그인 ", password);
 
         // Firebase에서 사용자 정보 가져오기
-        const q = query(collection(firestore, "users"), where("userId", "==", username));
+        const q = query(
+          collection(firestore, "users"),
+          where("userId", "==", username)
+        );
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
@@ -221,7 +228,10 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
         const userData = userDoc.data();
 
         // 비밀번호 검증 (예: bcrypt를 사용할 경우)
-        const isValidPassword = compare(password as string, userData.passwordHash as string);
+        const isValidPassword = await compare(
+          password as string,
+          userData.passwordHash as string
+        );
         if (!isValidPassword) {
           throw new Error("아이디 또는 비밀번호가 잘못되었습니다.");
         }
