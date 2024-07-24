@@ -41,7 +41,7 @@ export default function LoginComponent() {
 
     if (result?.error) {
       // 로그인 실패 처리
-      console.error(result.error);
+      //console.error(result.error);
     } else {
       // 로그인 성공 처리
       console.log("로그인 성공:", result);
