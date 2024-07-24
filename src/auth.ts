@@ -199,7 +199,7 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
 
   providers: [
     credentials({
-      name: "credentials",
+      name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text", placeholder: "아이디" },
         password: {
@@ -228,7 +228,7 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
         const userData = userDoc.data();
 
         // 비밀번호 검증 (예: bcrypt를 사용할 경우)
-        const isValidPassword = await compare(
+        const isValidPassword = compare(
           password as string,
           userData.passwordHash as string
         );
