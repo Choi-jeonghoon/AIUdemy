@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     if (!email) {
       return NextResponse.json(
         { message: "이메일을 입력하세요." },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         subject: "메일 인증을 해주세요",
         message: `안녕하세요, ${name}님. 인증을 위해 아래 링크를 클릭해주세요.`,
         // link: `http://localhost:3000/sign?email=${email}`,
-        link: `http://localhost:3000/sign?token=${token}`,
+        link: `https://ai-udemy.vercel.app/sign?token=${token}`,
       });
 
       if (mailResult) {
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
     console.error("이메일 발송 에러:", error);
     return NextResponse.json(
       { message: "이메일 발송에 실패했습니다." },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
