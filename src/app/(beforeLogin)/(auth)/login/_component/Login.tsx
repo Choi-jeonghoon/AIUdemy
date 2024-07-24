@@ -40,7 +40,7 @@ export default function LoginComponent() {
     });
 
     if (result?.error) {
-      // 로그인 실패 처리
+      alert("로그인 실패");
       console.error(result.error);
     } else {
       // 로그인 성공 처리
