@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         subject: "메일 인증을 해주세요",
         message: `안녕하세요, ${name}님. 인증을 위해 아래 링크를 클릭해주세요.`,
         // link: `http://localhost:3000/sign?email=${email}`,
-        link: `https://ai-udemy.vercel.app/sign?token=${token}`,
+        link: `${process.env.NEXT_PUBLIC_BASE_URL}/sign?token=${token}`,
       });
 
       if (mailResult) {
